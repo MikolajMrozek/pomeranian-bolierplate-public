@@ -1,3 +1,17 @@
 .todo-form {
+    
     max-width: 30.5rem;
+    
+}
+.todo-form__controls{
+    display: flex;
+    
+    justify-content: flex-end;
+}
+.todo-form__error{
+    color: var(--colors-actions-danger, #E12B1B);
+font-feature-settings: 'clig' off, 'liga' off;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.6875rem; /* 168.75% */
 }
