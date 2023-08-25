@@ -1,5 +1,8 @@
 .todo-form__textArea {
     min-height: 8rem;
     width: 100%;
-    resize: none
+    resize: none;
+    font-family:Poppins;
+    font-size: 1.1rem;
+
 }

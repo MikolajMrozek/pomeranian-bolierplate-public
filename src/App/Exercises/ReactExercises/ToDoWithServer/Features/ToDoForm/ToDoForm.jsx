@@ -1,8 +1,8 @@
 import './styles.css';
 import { useState } from 'react';
-import { Button, Label, Input, InputTextArea } from '../Components/index';
+import { Button, Label, Input, InputTextArea } from '../../Components/index';
 
-export const ToDoForm = () => {
+export const ToDoForm = ({ handleGoBack }) => {
   const [isError, setIsError] = useState(false);
   const handleADD = (event) => {
     event.preventDefault();
@@ -14,7 +14,7 @@ export const ToDoForm = () => {
       setIsError(true);
     }
   };
-  const handleGoBack = () => {};
+  // const handleGoBack = () => {};
 
   return (
     <div>
@@ -26,9 +26,12 @@ export const ToDoForm = () => {
         <Input id="author" placeholder="Wojtek" />
         <Label htmlFor="note">Treść</Label>
         <InputTextArea id="note" placeholder="Treść" />
-        {isError && (
-          <p className="todo-form__error">Wystąpił błąd, spróbuj ponownie.</p>
-        )}
+
+        <p className="todo-form__error">
+          {' '}
+          {isError && 'Wystąpił błąd, spróbuj ponownie.  '}
+        </p>
+
         <div className="todo-form__controls">
           <Button type="reset" onClick={handleGoBack} variant="secondary">
             Cofnij

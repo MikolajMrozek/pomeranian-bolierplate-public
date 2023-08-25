@@ -14,4 +14,5 @@ font-feature-settings: 'clig' off, 'liga' off;
 font-size: 1rem;
 font-weight: 400;
 line-height: 1.6875rem; /* 168.75% */
+min-height: 1.7rem;
 }
