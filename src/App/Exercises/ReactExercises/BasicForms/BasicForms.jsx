@@ -1,3 +1,4 @@
+import './styles.css';
 import React from 'react';
 
 import { useForm } from 'react-hook-form';
@@ -21,7 +22,7 @@ const schemaValidationValues = {
 };
 
 const schemaValidationMessage = {
-  required: 'Pole jest wymagane',
+  required: 'Pole Obowiązkowe !',
   boolean: 'To pole musi być zaznaczone lub nie',
 
   email: 'Wpisz poprawny adres email',
@@ -109,12 +110,13 @@ export function BasicForms() {
   console.log(errors);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
       {/* Zamówienie produktu */}
       <div>
         <h2>Zamówienie produktu</h2>
         <div>
           <label htmlFor="productType">Wybierz produkt*</label>
+          <br />
           <select {...register('productType')} name="productType">
             <option value="frontend">kurs front-end</option>
             <option value="backend">kurs back-end</option>
@@ -123,7 +125,7 @@ export function BasicForms() {
           {errors.productType && <p>{errors.productType.message}</p>}
         </div>
 
-        <div>
+        <div className="payment-method">
           <label>Wybierz formę płatności*</label>
           <div>
             <div>
@@ -152,7 +154,7 @@ export function BasicForms() {
           </div>
         </div>
 
-        <div>
+        <div className="order-informations">
           <label htmlFor="orderInformations">
             Opcje dodatkowe do zamówienia
           </label>
@@ -188,10 +190,11 @@ export function BasicForms() {
       </div>
 
       {/* Dane do realizacji zamówienia */}
-      <div>
+      <div className="user-adress">
         <h2>Dane do realizacji zamówienia</h2>
         <div>
           <label htmlFor="name">Imię i nazwisko*</label>
+          <br />
           <input
             {...register('name')}
             name="name"
@@ -204,6 +207,7 @@ export function BasicForms() {
 
         <div>
           <label htmlFor="nickname">Twój pseudonim*</label>
+          <br />
           <input
             {...register('nickname')}
             name="nickname"
@@ -216,6 +220,7 @@ export function BasicForms() {
 
         <div>
           <label htmlFor="address">Adres do wysyłki*</label>
+          <br />
           <input
             {...register('address')}
             name="address"
@@ -228,6 +233,7 @@ export function BasicForms() {
 
         <div>
           <label htmlFor="email">Adres email*</label>
+          <br />
           <input
             {...register('email')}
             name="email"
@@ -240,6 +246,7 @@ export function BasicForms() {
 
         <div>
           <label htmlFor="phone">Numer kontaktowy*</label>
+          <br />
           <input
             {...register('phone')}
             name="phone"
@@ -252,6 +259,7 @@ export function BasicForms() {
 
         <div>
           <label htmlFor="description">Dodatkowe uwagi do zamówienia</label>
+          <br />
           <textarea
             {...register('description')}
             name="description"
@@ -263,7 +271,7 @@ export function BasicForms() {
       </div>
 
       {/* Zakładanie konta */}
-      <div>
+      <div className="user-register">
         <h2>Zakładnie konta</h2>
         <div>
           <label htmlFor="createAccount">
@@ -272,6 +280,7 @@ export function BasicForms() {
           <div>
             <div>
               <input
+                className="register-checkbox"
                 {...register('isCreatedAccountChecked')}
                 name="createAccount"
                 type="checkbox"
@@ -283,7 +292,9 @@ export function BasicForms() {
 
         <div>
           <label htmlFor="password">Moje hasło*</label>
+          <br />
           <input
+            className="password-area"
             {...register('password')}
             name="password"
             type="password"
@@ -295,7 +306,9 @@ export function BasicForms() {
 
         <div>
           <label htmlFor="confirmPassword">Powtórz hasło*</label>
+          <br />
           <input
+            className="password-area"
             {...register('confirmPassword')}
             name="confirmPassword"
             type="password"
@@ -307,7 +320,7 @@ export function BasicForms() {
       </div>
 
       {/* Zgody i newsletter */}
-      <div>
+      <div className="newsletter">
         <h2>Zgody i newsletter</h2>
         <div>
           <label htmlFor="terms">
@@ -321,7 +334,7 @@ export function BasicForms() {
                 type="checkbox"
                 aria-invalid={errors.isTermsChecked ? 'true' : 'false'}
               />
-              <span>akceptuję regulamin*</span>
+              <span className="regulamin-accept">akceptuję regulamin*</span>
               {errors.isTermsChecked && <p>{errors.isTermsChecked.message}</p>}
             </div>
           </div>
